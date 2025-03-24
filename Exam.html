@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam</title>
+    <link rel="stylesheet" type="text/css" href="exam.css">
+</head>
+<body>
+    <form id="examForm">
+        <fieldset>
+            <legend>
+                <h1 align="center">Exams Second Semester</h1>
+            </legend>
+
+            <input type="date" name="dob" id="date"><br><br>
+
+            <h2>Presentation</h2><br>
+            Name: <input type="text" name="Name"><br><br>
+            Surname: <input type="text" name="Surname"><br><br>
+            Course: <input type="text" name="Course"><br><br>
+            Id number: <input type="text" name="Id_number"><br><br>
+
+            <h3>Questions:</h3>
+            <div class="Questions">
+                <ol>
+                    <li>
+                        <p><b>What does HTML stand for?</b></p>
+                        <input type="radio" name="exam" value="Hyper text markup language"> Hyper Text Markup Language <br>
+                        <input type="radio" name="exam" value="High tech modern language"> High Tech Modern Language <br>
+                        <input type="radio" name="exam" value="Hyperlink text multi language"> Hyperlink Text Multi Language <br>
+                        <input type="radio" name="exam" value="Home tool markup language"> Home Tool Markup Language <br>
+                    </li>
+
+                    <li>
+                        <p><b>What does the "Full Screen" button do?</b></p>
+                        <input type="radio" name="uhm" value="To display screen"> To display screen <br>
+                        <input type="radio" name="uhm" value="To put in full screen"> To put in full screen <br>
+                        <input type="radio" name="uhm" value="To display screen on the device"> To display screen on the device <br>
+                        <input type="radio" name="uhm" value="To display PC "> To display PC <br>
+                    </li>
+
+                    <li>
+                        <p><b>Is HTML a programming language?</b></p>
+                        <input type="radio" name="exa" value="No"> No <br>
+                        <input type="radio" name="exa" value="Yes"> Yes <br>
+                        <input type="radio" name="exa" value="Maybe"> Maybe <br>
+                        <input type="radio" name="exa" value="Never"> Never <br>
+                    </li>
+
+                    <li>
+                        <p><b>What is the use of CSS?</b></p>
+                        <input type="radio" name="ex" value="To store data"> To store data <br>
+                        <input type="radio" name="ex" value="To frame website"> To frame website <br>
+                        <input type="radio" name="ex" value="To style the website"> To style the website <br>
+                        <input type="radio" name="ex" value="To show design"> To show design <br>
+                    </li>
+
+                    <li>
+                        <p><b>Who invented HTML?</b></p>
+                        <input type="radio" name="e" value="Frank Jacob"> Frank Jacob <br>
+                        <input type="radio" name="e" value="Tim Berners-Lee"> Tim Berners-Lee <br>
+                        <input type="radio" name="e" value="John Walker"> John Walker <br>
+                        <input type="radio" name="e" value="Jack Ma"> Jack Ma <br>
+                    </li>
+                </ol>
+            </div>
+            
+            <b>Good work!! 😊</b><br><br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let form = document.getElementById("examForm");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // Stop the form from refreshing
+
+                // Get selected answers
+                let q1 = document.querySelector('input[name="exam"]:checked');
+                let q2 = document.querySelector('input[name="uhm"]:checked');
+                let q3 = document.querySelector('input[name="exa"]:checked');
+                let q4 = document.querySelector('input[name="ex"]:checked');
+                let q5 = document.querySelector('input[name="e"]:checked');
+
+                // Check if all questions are answered
+                if (!q1 || !q2 || !q3 || !q4 || !q5) {
+                    alert("⚠️ Please answer all questions before submitting.");
+                    return;
+                }
+
+                // Correct answers
+                let correctAnswers = {
+                    "exam": "Hyper text markup language",
+                    "uhm": "To display screen",
+                    "exa": "No",
+                    "ex": "To style the website",
+                    "e": "Tim Berners-Lee"
+                };
+
+                // Count correct answers
+                let score = 0;
+                if (q1.value === correctAnswers["exam"]) score++;
+                if (q2.value === correctAnswers["uhm"]) score++;
+                if (q3.value === correctAnswers["exa"]) score++;
+                if (q4.value === correctAnswers["ex"]) score++;
+                if (q5.value === correctAnswers["e"]) score++;
+
+                // Display score
+                alert("✅ You got " + score + " out of 5 correct!");
+            });
+        });
+    </script>
+</body>
+</html>

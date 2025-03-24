@@ -1,0 +1,34 @@
+body {
+    background-color: rgb(249, 246, 247);
+    max-width: 600px;
+    margin: auto;
+}
+
+h1,
+h2,
+h3 {
+    color: rgb(9, 108, 108);
+}
+
+.Questions {
+    margin-left: 90px;
+}
+
+h1,
+h2,
+h3 {
+    text-decoration: underline;
+}
+
+#date {
+    display: block;
+    text-align: right;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+fieldset {
+    width: 80%;
+    margin: 0 auto;
+    border: 4;
+}
